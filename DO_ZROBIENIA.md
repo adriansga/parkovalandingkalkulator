@@ -1,5 +1,5 @@
 # DO ZROBIENIA — Parkova Hotel Strona
-**Data:** 14.03.2026 | Wykonaj przed opublikowaniem strony
+**Data:** 14.03.2026 | Aktualizacja @coo po sesji implementacyjnej
 
 ---
 
@@ -25,8 +25,8 @@ Zastąp:   Twoim prawdziwym ID piksela (16 cyfr)
 
 ---
 
-### 3. Formspree — skonfiguruj formularz kontaktowy
-**Plik:** `index.html` → wyszukaj: `FORMSPREE_ID`
+### 3. Formspree — skonfiguruj formularze (2 miejsca!)
+**Plik:** `index.html` → wyszukaj: `FORMSPREE_ID` (występuje 2x — formularz kontaktowy + formularz callback przy kalkulatorze)
 ```
 Znajdź:   https://formspree.io/f/FORMSPREE_ID
 Zastąp:   https://formspree.io/f/TwójKod (np. xpwdrgkj)
@@ -40,30 +40,13 @@ Zastąp:   https://formspree.io/f/TwójKod (np. xpwdrgkj)
 
 ---
 
-### 4. Polityka Prywatności — utwórz plik
-**Plik:** `polityka-prywatnosci.html` (w tym samym folderze co index.html)
-
-Minimalne wymagania RODO:
-- Kto jest administratorem danych (Rezydencja Parkova, Gierłoż 2)
-- Jakie dane zbierasz (imię, telefon, email)
-- W jakim celu (odpowiedź na zapytanie, rezerwacja)
-- Jak długo przechowujesz (sugestia: 12 miesięcy)
-- Prawa użytkownika (dostęp, usunięcie, sprzeciw)
-- Kontakt: biuro@rezydencjaparkova.pl
-
-Możesz wygenerować przez: iubenda.com lub termsandconditions.org
+### 4. ✅ Polityka Prywatności — ZROBIONE
+Plik `polityka-prywatnosci.html` utworzony. RODO-compliant, 9 paragrafów, styl Parkova.
 
 ---
 
-### 5. Regulamin — utwórz plik
-**Plik:** `regulamin.html` (w tym samym folderze co index.html)
-
-Minimalne wymagania:
-- Zasady rezerwacji i anulowania
-- Polityka płatności i zaliczek
-- Check-in / check-out godziny
-- Zasady pobytu zwierząt
-- Odpowiedzialność za szkody
+### 5. ✅ Regulamin — ZROBIONE
+Plik `regulamin.html` utworzony. 10 paragrafów, spis treści, anulowanie, check-in/out, zwierzęta.
 
 ---
 
@@ -92,32 +75,13 @@ Po konwersji zaktualizuj nazwy plików w index.html (`.png` → `.webp`).
 
 ---
 
-### 7. Utwórz sitemap.xml
-**Plik:** `sitemap.xml` (w głównym folderze strony, obok index.html)
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://rezydencjaparkova.pl/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-</urlset>
-```
+### 7. ✅ sitemap.xml — ZROBIONE
+Plik `sitemap.xml` utworzony. Zawiera: stronę główną, politykę prywatności, regulamin.
 
 ---
 
-### 8. Utwórz robots.txt
-**Plik:** `robots.txt` (w głównym folderze strony)
-
-```
-User-agent: *
-Allow: /
-Disallow: /backup/
-Sitemap: https://rezydencjaparkova.pl/sitemap.xml
-```
+### 8. ✅ robots.txt — ZROBIONE
+Plik `robots.txt` utworzony. Allow: /, Disallow: /backup/
 
 ---
 
@@ -132,43 +96,73 @@ Sitemap: https://rezydencjaparkova.pl/sitemap.xml
 ## ⚪ DO ROZWAŻENIA (opcjonalne)
 
 ### 10. Opublikuj prawdziwe opinie
-Strona ma 6 przykładowych opinii. Warto je zastąpić prawdziwymi lub
-uzupełnić o widżet Booking.com / Google Reviews.
+Strona ma 6 przykładowych opinii. Zastąp prawdziwymi lub dodaj widżet Booking.com / Google Reviews.
 
-### 11. Sprawdź numer telefonu w kalkulatorze
-Kalkulator grupowy pokazuje tel: +48 886 120 501. Potwierdź, że to właściwy numer dla zapytań grupowych.
-
-### 12. Dodaj favicon
-Utwórz plik `favicon.ico` lub `favicon.png` i dodaj do `<head>`:
-```html
-<link rel="icon" type="image/png" href="favicon.png">
+### 11. Social media — zweryfikuj i aktywuj linki
+W stopce dodano ikony FB/Instagram/WhatsApp z placeholder-owymi URL-ami.
+```
+Sprawdź i zastąp:
+- facebook.com/rezydencjaparkova  → prawdziwy profil FB
+- instagram.com/rezydencjaparkova → prawdziwy profil IG
+- wa.me/48886120501               → już aktywny (numer recepcji)
 ```
 
-### 13. Test formularza po podłączeniu Formspree
-Wyślij testowe zapytanie i sprawdź czy email dochodzi na biuro@rezydencjaparkova.pl
+### 12. ✅ Favicon — ZROBIONE
+Plik `favicon.svg` utworzony (złote "P" na ciemnozielonym tle). Już podłączony w `<head>`.
+
+### 13. Test formularzy po podłączeniu Formspree
+Wyślij testowe zapytanie z obu formularzy i sprawdź czy email dochodzi na biuro@rezydencjaparkova.pl:
+- [ ] Formularz kontaktowy (sekcja kontakt)
+- [ ] Formularz callback przy kalkulatorze grupowym
 
 ### 14. Test na telefonie
 Sprawdź:
-- [ ] FAB (pulsujący telefon) widoczny i klikalny
+- [ ] WhatsApp sticky CTA widoczny i klikalny (zastąpił starego FAB-a)
 - [ ] Sticky CTA na dole działa
 - [ ] Formularz kontaktowy działa
+- [ ] Formularz callback przy kalkulatorze działa
 - [ ] Kalkulator grupowy działa
 - [ ] Hamburger menu otwiera się i zamyka
 - [ ] Mapa ładuje się poprawnie
 
 ---
 
-## KOLEJNOŚĆ DZIAŁAŃ
+## ✅ ZROBIONE W TEJ SESJI
+
+| # | Co | Kiedy |
+|---|-----|-------|
+| ✅ | SEO: FAQPage JSON-LD (7 pytań) | 14.03.2026 |
+| ✅ | SEO: og:image absolutny URL, og:url, og:locale, og:site_name | 14.03.2026 |
+| ✅ | SEO: Twitter Cards (summary_large_image) | 14.03.2026 |
+| ✅ | SEO: canonical tag | 14.03.2026 |
+| ✅ | Bug fix: toastIcon null reference (brak id na elemencie) | 14.03.2026 |
+| ✅ | Bug fix: textContent → innerHTML (SVG w przycisku formularza) | 14.03.2026 |
+| ✅ | Usunięto dead CSS: .phone-fab, fabPulse, fabWiggle | 14.03.2026 |
+| ✅ | WhatsApp sticky CTA (zastąpił FAB) | 14.03.2026 |
+| ✅ | Formularz callback przy kalkulatorze grupowym | 14.03.2026 |
+| ✅ | Tracking: exit popup (GA4 exit_popup_shown + exit_popup_click, fbq ViewContent) | 14.03.2026 |
+| ✅ | Tracking: callback_request (GA4 + fbq Lead) | 14.03.2026 |
+| ✅ | Social media ikony w stopce (FB/IG/WhatsApp) | 14.03.2026 |
+| ✅ | favicon.svg (złote "P" na zielonym) | 14.03.2026 |
+| ✅ | robots.txt | 14.03.2026 |
+| ✅ | sitemap.xml | 14.03.2026 |
+| ✅ | polityka-prywatnosci.html (RODO, 9 §) | 14.03.2026 |
+| ✅ | regulamin.html (10 §, spis treści) | 14.03.2026 |
+| ✅ | 404.html (styl Parkova, telefon recepcji) | 14.03.2026 |
+| ✅ | Git init + push do GitHub Pages | 14.03.2026 |
+
+---
+
+## KOLEJNOŚĆ NASTĘPNYCH DZIAŁAŃ
 
 ```
-1. Formspree (5 min) → formularz zacznie zbierać leady
-2. Google Analytics (10 min) → dane od pierwszej wizyty
-3. Facebook Pixel (10 min) → możliwość reklam
-4. Polityka Prywatności (30 min) → wymagane prawnie
-5. Regulamin (30 min) → wymagane prawnie
-6. robots.txt + sitemap.xml (5 min) → SEO
-7. Google Search Console (15 min) → indeksowanie
-8. Konwersja obrazów WebP (1h) → szybkość
+1. Formspree (5 min) → wstaw FORMSPREE_ID w 2 miejscach → formularz zacznie zbierać leady
+2. Google Analytics (10 min) → wstaw G-XXXXXXXXXX → dane od pierwszej wizyty
+3. Facebook Pixel (10 min) → wstaw XXXXXXXXXXXXX → możliwość reklam
+4. Social media (5 min) → zweryfikuj URL-e FB/IG w stopce
+5. Google Search Console (15 min) → zgłoś sitemap.xml → indeksowanie
+6. Konwersja obrazów WebP (1h) → szybkość strony
+7. Prawdziwe opinie gości → wiarygodność
 ```
 
 ---
